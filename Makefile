@@ -7,7 +7,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I includes -I srcs
 RM = rm -rf
 
-SRC = main.cpp
+SRC = main.cpp \
+	  mesh.cpp
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))

@@ -1,3 +1,4 @@
+#include "../includes/mesh.hpp"
 #include "../includes/scop.hpp"
 
 int main() {
@@ -11,9 +12,12 @@ int main() {
 
   glfwMakeContextCurrent(win);
 
+  Mesh mesh("logo42.obj");
   while (!glfwWindowShouldClose(win)) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    // Draw here;
+
+    std::cout << "Vertices: " << mesh.vertices.size() << "\n";
+    std::cout << "Faces: " << mesh.faces.size() << "\n";
 
     glfwSwapBuffers(win);
     glfwPollEvents();
