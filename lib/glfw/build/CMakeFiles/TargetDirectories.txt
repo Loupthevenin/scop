@@ -1,0 +1,15 @@
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/uninstall.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/edit_cache.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/rebuild_cache.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/list_install_components.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/install.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/install/local.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/CMakeFiles/install/strip.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/update_mappings.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/glfw.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/edit_cache.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/rebuild_cache.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/list_install_components.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/install.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/install/local.dir
+/Users/loup/dev/42_cursus/scop/glfw/build/src/CMakeFiles/install/strip.dir

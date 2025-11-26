@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/loup/dev/42_cursus/scop/glfw/build/cmake_install.cmake",
+		"/Users/loup/dev/42_cursus/scop/glfw/build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
