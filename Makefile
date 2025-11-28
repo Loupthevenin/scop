@@ -1,42 +1,63 @@
 NAME = scop
 
-SRC_DIR = ./srcs
-OBJ_DIR = ./objs
+SRC_DIR = srcs
+OBJ_DIR = objs
+
+LIBFT = libft/libft.a
+
+# GLFW (Homebrew)
+GLFW_INC = /opt/homebrew/include
+GLFW_LIB = -L /opt/homebrew/lib -lglfw
+
+# GLAD
+GLAD_DIR = glad
+GLAD_INC = $(GLAD_DIR)/include
+GLAD_SRC = $(GLAD_DIR)/src/glad.c
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I includes -I srcs
-RM = rm -rf
+CC = cc
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS= -Wall -Wextra -Werror
 
-SRC = main.cpp \
-	  mesh.cpp
+FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 
-SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+INCLUDES = -I includes -I $(GLFW_INC) -I $(GLAD_INC)
+
+SRC = main.cpp mesh.cpp
+SRC_C = $(GLAD_SRC)
+
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o)) \
+       $(addprefix $(OBJ_DIR)/, $(notdir $(SRC_C:.c=.o)))
+
 DEPS = $(OBJS:.o=.d)
 
-LIBS = -Llib/glfw/build/src -lglfw3 \
-        -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
+LIBS = $(LIBFT) $(GLFW_LIB) $(FRAMEWORKS)
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C libft
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
-	$(CXX) $(CXXFLAGS) -MMD -MF $(@:.o=.d) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -MMD -MF $(@:.o=.d) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(GLAD_DIR)/src/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -MMD -MF $(@:.o=.d) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
 -include $(DEPS)
 
 .PHONY: all clean fclean re
-
